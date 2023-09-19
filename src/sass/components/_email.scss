@@ -1,0 +1,66 @@
+@use '../abstract/variables' as *;
+@use '../abstract/_mixins' as *;
+@use '../components/buttons' as *;
+
+.email {
+  margin-block: 2rem;
+  border-radius: $rounded-xl;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  @include theme-aware {
+    background-color: getValue('clr-bg-secondary');
+  }
+
+  @include sm {
+    flex-wrap: nowrap;
+  }
+
+  &__contents {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  &__address {
+    min-width: 25ch;
+    max-width: 25ch;
+    word-wrap: break-word;
+    @include theme-aware {
+      color: getValue('clr-text-primary');
+    }
+  }
+
+  &__subject {
+    @include theme-aware {
+      color: getValue('clr-text-secondary');
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__button--view {
+    @include button--outlined('clr-info', 'clr-info');
+    padding: 5px;
+    font-size: $text-2xl;
+    border-radius: $rounded-base;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__button--delete {
+    @include button--outlined('clr-error', 'clr-error');
+    padding: 5px;
+    font-size: $text-2xl;
+    border-radius: $rounded-base;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

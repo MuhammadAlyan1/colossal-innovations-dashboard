@@ -1,0 +1,31 @@
+@use '../abstract/index' as *;
+@use '../components/buttons' as *;
+
+@mixin section-header {
+  margin-block: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__title {
+    font-size: $text-4xl;
+    text-transform: uppercase;
+    @include theme-aware {
+      color: getValue('clr-accent');
+    }
+  }
+
+  &__button-icon {
+    font-size: 1.5rem;
+  }
+
+  &__submit-button {
+    @include button--contained('clr-white', 'clr-accent');
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    text-transform: uppercase;
+  }
+}

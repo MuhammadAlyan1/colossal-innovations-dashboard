@@ -1,0 +1,11 @@
+@use '../abstract/_mixins' as *;
+@use '../abstract/variables' as *;
+@use '../components/index' as *;
+
+.emails {
+  margin-block: 2rem;
+
+  .section-header {
+    @include section-header;
+  }
+}

@@ -1,0 +1,58 @@
+@use '../abstract/variables' as *;
+@use '../abstract/_mixins' as *;
+@use '../themes/theme' as *;
+
+@mixin button--text($color, $font-size: $text-base) {
+  @include theme-aware {
+    color: getValue($color);
+  }
+
+  font-size: $font-size;
+  font-family: inherit;
+  border: none;
+  background-color: transparent;
+  padding: 0rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@mixin button--contained($color, $background-color, $font-size: $text-base) {
+  font-size: $font-size;
+  font-family: inherit;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: $rounded-lg;
+
+  @include theme-aware {
+    color: getValue($color);
+    background-color: getValue($background-color);
+  }
+}
+
+@mixin button--outlined($color, $border-color, $font-size: $text-base) {
+  font-size: $font-size;
+  font-family: inherit;
+  padding: 0.5rem 1rem;
+
+  cursor: pointer;
+  border-radius: $rounded-lg;
+  background-color: transparent;
+
+  @include theme-aware {
+    color: getValue($color);
+    border: 2px solid getValue($border-color);
+  }
+}
+
+.button--text {
+  @include button--text('clr-accent');
+}
+
+.button--contained {
+  @include button--contained('clr-accent', 'clr-bg-secondary');
+}
+
+.button--outlined {
+  @include button--outlined('clr-text-primary', 'clr-text-primary');
+}

@@ -1,0 +1,82 @@
+@use '../abstract/index' as *;
+@use '../components/buttons' as *;
+
+.delete-modal {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  inset: 0;
+  background-color: rgba(0 0 0 / 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__contents {
+    max-width: 550px;
+    margin: 1rem;
+    border-radius: $rounded-lg;
+    padding: 1rem;
+    z-index: 10;
+
+    @include theme-aware {
+      background-color: getValue('clr-bg-secondary');
+    }
+  }
+
+  &__icon-container {
+    background-color: #ffe4e6;
+    width: 60px;
+    height: 60px;
+    border-radius: $rounded-full;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  &__icon {
+    font-size: 45px;
+    position: relative;
+    top: -4px;
+    @include theme-aware {
+      color: getValue('clr-error');
+    }
+  }
+
+  &__warning {
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    max-width: 50ch;
+    margin-inline: auto;
+  }
+
+  &__item-title {
+    font-size: $text-xl;
+    max-width: 50ch;
+    text-align: center;
+    margin-inline: auto;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    @include theme-aware {
+      color: getValue('clr-accent');
+    }
+  }
+
+  &__button--delete {
+    @include button--contained('clr-white', 'clr-error');
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    margin-bottom: 1rem;
+  }
+
+  &__button--cancel {
+    @include button--outlined('clr-text-primary', 'clr-text-primary');
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+  }
+}

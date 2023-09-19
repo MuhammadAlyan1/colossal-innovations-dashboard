@@ -1,0 +1,45 @@
+@use '../abstract/index' as *;
+
+.overview-card {
+  padding: 2rem 1rem;
+  border-radius: $rounded-2xl;
+
+  @include theme-aware {
+    background-color: getValue('clr-bg-secondary');
+  }
+
+  &__icon-container {
+    width: 70px;
+    height: 70px;
+    border-radius: $rounded-2xl;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: auto;
+  }
+
+  &__icon {
+    width: 50px;
+    display: block;
+  }
+
+  &__name {
+    font-size: $text-xl;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-block: 1em;
+    @include theme-aware {
+      color: getValue('clr-text-primary');
+    }
+  }
+
+  &__value {
+    text-align: center;
+    font-size: $text-4xl;
+    @include theme-aware {
+      color: getValue('clr-text-primary');
+    }
+  }
+}

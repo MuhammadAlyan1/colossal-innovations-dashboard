@@ -1,0 +1,19 @@
+@use '../abstract/_mixins' as *;
+@use '../abstract/variables' as *;
+@use '../components/index' as *;
+
+.projects {
+  margin-block: 2rem;
+
+  .section-header {
+    @include section-header;
+  }
+
+  &__container {
+    @include lg {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+    }
+  }
+}

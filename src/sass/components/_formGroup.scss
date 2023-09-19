@@ -1,0 +1,60 @@
+@use '../abstract/index' as *;
+
+.form__group {
+  margin-block: 2rem;
+}
+
+.form__label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: $text-2xl;
+  @include theme-aware {
+    color: getValue('clr-text-primary');
+  }
+}
+
+.form__field {
+  font-family: inherit;
+  font-size: $text-base;
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 100%;
+  transition: all 250ms ease-in;
+  background-color: transparent;
+
+  @include theme-aware {
+    color: getValue('clr-text-secondary');
+  }
+}
+
+.form__field--outlined {
+  border: none;
+  outline: transparent;
+  @include theme-aware {
+    border: 2px solid getValue('clr-text-secondary');
+  }
+
+  &:focus,
+  &:hover {
+    @include theme-aware {
+      border: 2px solid getValue('clr-accent');
+    }
+  }
+}
+
+.form__field--standard {
+  border: none;
+  outline: transparent;
+  border-radius: 0px;
+  padding-inline: 0px;
+  @include theme-aware {
+    border-bottom: 2px solid getValue('clr-text-secondary');
+  }
+
+  &:focus,
+  &:hover {
+    @include theme-aware {
+      border-bottom: 2px solid getValue('clr-accent');
+    }
+  }
+}

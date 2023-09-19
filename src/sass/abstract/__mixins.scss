@@ -1,0 +1,70 @@
+@use '../themes/index' as *;
+@use './variables' as *;
+
+// Theme
+@mixin theme-aware($arg: theme) {
+  $array: $themes;
+  $prefix: theme;
+
+  @each $theme, $map in $array {
+    .#{$prefix}-#{$theme} & {
+      $array-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($array, $theme), '#{$key}');
+        $array-map: map-merge(
+          $array-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+
+      @content;
+      $array-map: null !global;
+    }
+  }
+}
+
+@function getValue($key) {
+  @return map-get($array-map, $key);
+}
+
+// Breakpoints
+
+@mixin xs() {
+  @media (min-width: map-get($breakpoints, 'xs')) {
+    @content;
+  }
+}
+
+@mixin sm() {
+  @media (min-width: map-get($breakpoints, 'sm')) {
+    @content;
+  }
+}
+
+@mixin md() {
+  @media (min-width: map-get($breakpoints, 'md')) {
+    @content;
+  }
+}
+
+@mixin lg() {
+  @media (min-width: map-get($breakpoints, 'lg')) {
+    @content;
+  }
+}
+
+@mixin xl() {
+  @media (min-width: map-get($breakpoints, 'xl')) {
+    @content;
+  }
+}
+
+@mixin xxl() {
+  @media (min-width: map-get($breakpoints, 'xxl')) {
+    @content;
+  }
+}
+
+// font size

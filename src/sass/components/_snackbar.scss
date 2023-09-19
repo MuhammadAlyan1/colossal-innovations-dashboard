@@ -1,0 +1,55 @@
+@use '../abstract/variables' as *;
+@use '../abstract/_mixins' as *;
+
+.snackbar {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  display: flex;
+  gap: 0.5rem;
+  font-size: $text-lg;
+  align-items: center;
+  color: white;
+  transform: translateX(-300%);
+  transition: transform 220ms ease-in;
+  z-index: 100;
+
+  &--visible {
+    transform: translateX(0%);
+  }
+
+  &--info {
+    @extend .snackbar;
+    @include theme-aware {
+      background-color: getValue(clr-info);
+    }
+  }
+
+  &--warning {
+    @extend .snackbar;
+    @include theme-aware {
+      background-color: getValue(clr-warning);
+    }
+  }
+
+  &--error {
+    @extend .snackbar;
+    @include theme-aware {
+      background-color: getValue(clr-error);
+    }
+  }
+
+  &--success {
+    @extend .snackbar;
+    @include theme-aware {
+      background-color: getValue(clr-success);
+    }
+  }
+
+  &__icon {
+    font-size: $text-3xl;
+    color: inherit;
+  }
+}

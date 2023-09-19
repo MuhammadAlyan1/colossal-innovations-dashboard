@@ -1,0 +1,24 @@
+@use './abstract/index' as *;
+@use './base/index' as *;
+@use './components/index' as *;
+@use './layout/index' as *;
+@use './pages/index' as *;
+@use './themes/index' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+body {
+  margin-top: 5rem;
+  margin-inline: $default-margin-inline;
+
+  @include lg {
+    margin-top: 5rem;
+  }
+  @include theme-aware {
+    color: getValue(clr-text-primary);
+    background-color: getValue(clr-bg-primary);
+  }
+
+  font-family: 'Poppins', sans-serif;
+}

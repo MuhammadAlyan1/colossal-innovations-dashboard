@@ -1,0 +1,23 @@
+@use '../abstract/index' as *;
+@use '../components/buttons' as *;
+
+.signup-form {
+  max-width: 450px;
+  margin-inline: auto;
+
+  &__heading {
+    font-size: $text-4xl;
+  }
+
+  &__submit-button {
+    @include button--contained('clr-accent', 'clr-bg-secondary');
+    width: 100%;
+  }
+
+  &__note {
+    @include theme-aware {
+      color: getValue('clr-text-secondary');
+    }
+    margin-top: 1rem;
+  }
+}

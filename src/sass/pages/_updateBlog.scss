@@ -1,0 +1,8 @@
+@use '../abstract/index' as *;
+@use '../components/index' as *;
+
+.update-blog {
+  .section-header {
+    @include section-header;
+  }
+}

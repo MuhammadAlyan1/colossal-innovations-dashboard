@@ -1,0 +1,100 @@
+@use '../abstract/index' as *;
+@use '../components/buttons' as *;
+
+.career {
+  margin-block: 2rem;
+  border-radius: $rounded-xl;
+  box-shadow: 0px 0px 2px 2px rgba(141, 139, 139, 0.5);
+  max-width: 600px;
+  margin-inline: auto;
+  padding: 1rem;
+
+  &__title {
+    font-size: $text-xl;
+    text-transform: uppercase;
+    font-weight: 400;
+    max-width: 50ch;
+    @include theme-aware {
+      color: getValue('clr-text-primary');
+    }
+  }
+
+  &__description {
+    font-size: $text-base;
+    max-width: 85ch;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    @include theme-aware {
+      color: getValue('clr-text-secondary');
+    }
+  }
+
+  &__tags-container {
+    padding: 0px;
+    list-style-type: none;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    max-width: 100ch;
+  }
+
+  &__tag {
+    font-size: $text-xs;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 250ms ease-in;
+
+    @include theme-aware {
+      color: getValue('clr-text-primary');
+      outline: 1px solid getValue('clr-text-primary');
+    }
+  }
+
+  &__tag:hover {
+    @include theme-aware {
+      outline-color: getValue('clr-accent');
+      color: getValue('clr-accent');
+    }
+  }
+
+  &__buttons-container {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  &__button-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__button--view {
+    @include button--outlined('clr-info', 'clr-info');
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__button--edit {
+    @include button--outlined('clr-info', 'clr-info');
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__button--delete {
+    @include button--outlined('clr-error', 'clr-error');
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include lg {
+    margin-inline: 0px;
+    margin-block: 0px;
+  }
+}

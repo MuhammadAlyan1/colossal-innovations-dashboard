@@ -1,0 +1,151 @@
+@use '../abstract/variables' as *;
+@use '../abstract/_mixins' as *;
+@use '../components/buttons' as *;
+
+.user {
+  margin-block: 2rem;
+  border-radius: $rounded-xl;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  @include theme-aware {
+    background-color: getValue('clr-bg-secondary');
+  }
+
+  &__username {
+    font-size: $text-2xl;
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+
+    @include theme-aware {
+      color: getValue('clr-text-primary');
+    }
+  }
+
+  &__user-role {
+    cursor: default;
+    display: block;
+    width: fit-content;
+    font-size: $text-xs;
+    padding: 0.3em 0.5em;
+    border-radius: $rounded-base;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__role-select {
+    position: relative;
+  }
+
+  &__role-select-button {
+    text-transform: uppercase;
+    width: 150px;
+    padding: 0.5rem;
+    border-radius: $rounded-base;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    @include theme-aware {
+      background-color: transparent;
+      border: 1px solid getValue('clr-text-secondary');
+      color: getValue('clr-text-primary');
+    }
+  }
+
+  &__dropdown-icon {
+    font-size: $text-xl;
+    transition: transform 250ms ease-in;
+    @include theme-aware {
+      background-color: transparent;
+      color: getValue('clr-text-primary');
+    }
+  }
+
+  &__dropdown-menu {
+    list-style-type: none;
+    border-radius: $rounded-base;
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -130px;
+    cursor: default;
+    box-shadow: 0px 4px 4px rgba(0 0 0 / 0.5);
+    @include theme-aware {
+      color: getValue('clr-text-primary');
+      background-color: getValue('clr-bg-primary');
+    }
+    transform: scale(0);
+    transform-origin: top;
+    transition: transform 250ms ease-in;
+  }
+
+  &__role-select-button:focus + &__dropdown-menu,
+  &__role-select-button:focus-within + &__dropdown-menu,
+  &__dropdown-menu:focus,
+  &__dropdown-menu:focus-within {
+    transform: scale(1);
+  }
+
+  &__role-select-button:focus &__dropdown-icon,
+  &__role-select-button:focus-within &__dropdown-icon {
+    transform: rotate(180deg);
+  }
+
+  &__dropdown-menu-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-block: 0.5rem;
+  }
+
+  &__dropdown-menu-item:hover {
+    @include theme-aware {
+      background-color: getValue('clr-bg-secondary');
+    }
+  }
+
+  &__user-role--admin {
+    @include theme-aware {
+      color: getValue('clr-white');
+      background-color: getValue('clr-error');
+    }
+  }
+
+  &__user-role--moderator {
+    @include theme-aware {
+      color: getValue('clr-white');
+      background-color: getValue('clr-info');
+    }
+  }
+
+  &__user-role--user {
+    @include theme-aware {
+      color: getValue('clr-white');
+      background-color: getValue('clr-success');
+    }
+  }
+
+  &__button--delete {
+    @include button--outlined('clr-error', 'clr-error');
+    padding: 5px;
+    font-size: $text-2xl;
+    border-radius: $rounded-base;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

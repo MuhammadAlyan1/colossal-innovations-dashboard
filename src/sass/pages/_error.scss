@@ -1,0 +1,57 @@
+@use '../abstract/index' as *;
+
+.errorPage {
+  margin-top: -5rem;
+  margin-left: -1.1 * $default-margin-inline;
+  margin-right: -1.1 * $default-margin-inline;
+  text-align: center;
+  font-size: $text-base;
+  background: url('../../assets/astronaut-transparent.png'),
+    linear-gradient(to right, rgba(0 0 0 / 0.8), rgba(0 0 0 / 0.8));
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  color: white;
+
+  &__image-container {
+    max-width: 500px;
+    margin-inline: auto;
+    margin-block: 1rem;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+  }
+
+  &__description {
+    text-align: center;
+    margin-inline: auto;
+    max-width: 90ch;
+  }
+
+  &__assistance {
+    text-align: center;
+    margin-inline: auto;
+    max-width: 90ch;
+  }
+
+  &__email {
+    color: #d46b47;
+    text-decoration: underline;
+    letter-spacing: 1px;
+  }
+
+  &__link-button {
+    color: white;
+    font-size: $text-xl;
+    display: block;
+    margin-block: 1rem;
+    max-width: fit-content;
+    margin-inline: auto;
+  }
+}

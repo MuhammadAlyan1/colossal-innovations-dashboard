@@ -1,0 +1,83 @@
+@use '../abstract/index' as *;
+@use '../components/buttons' as *;
+
+.dashboard {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__greet {
+    font-size: $text-base;
+    @include theme-aware {
+      color: getValue('clr-text-secondary');
+    }
+  }
+
+  &__user {
+    font-size: $text-2xl;
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+
+    @include theme-aware {
+      color: getValue('clr-text-primary');
+    }
+  }
+
+  &__user-role {
+    cursor: default;
+    display: block;
+    width: fit-content;
+    font-size: $text-xs;
+    padding: 0.3em 0.5em;
+    border-radius: $rounded-base;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  &__user-role--admin {
+    @include theme-aware {
+      color: getValue('clr-white');
+      background-color: getValue('clr-error');
+    }
+  }
+
+  &__user-role--moderator {
+    @include theme-aware {
+      color: getValue('clr-white');
+      background-color: getValue('clr-info');
+    }
+  }
+
+  &__user-role--user {
+    @include theme-aware {
+      color: getValue('clr-white');
+      background-color: getValue('clr-success');
+    }
+  }
+
+  &__signout-button {
+    @include button--contained('clr-white', 'clr-error');
+    text-transform: uppercase;
+    font-size: $text-base;
+    padding: 0.25em 0.5em;
+    letter-spacing: 1px;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-block: 2rem;
+    gap: 1rem;
+
+    @include sm {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

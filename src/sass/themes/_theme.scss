@@ -1,0 +1,28 @@
+@use '../abstract/variables' as *;
+
+$themes: (
+  light: (
+    clr-text-primary: #222,
+    clr-text-secondary: #555,
+    clr-bg-primary: #fff,
+    clr-bg-secondary: #e6e8ea,
+    clr-accent: #d46b47,
+    clr-info: #1e95d6,
+    clr-warning: #f68a1c,
+    clr-error: #d84646,
+    clr-success: #4e9a52,
+    clr-white: #fff
+  ),
+  dark: (
+    clr-text-primary: #fff,
+    clr-text-secondary: #b9b4b4,
+    clr-bg-primary: #0e1111,
+    clr-bg-secondary: #1e2121,
+    clr-accent: #d46b47,
+    clr-info: #1e95d6,
+    clr-warning: #f68a1c,
+    clr-error: #d84646,
+    clr-success: #4e9a52,
+    clr-white: #fff
+  )
+);
