@@ -3,7 +3,6 @@
 .navigation {
   $navigation-padding: 1rem;
   $items-margin-block: 2rem;
-  $navigation-width: 300px;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -105,6 +104,16 @@
 
   &--visible {
     left: 0;
+  }
+
+  @include xl {
+    &__button {
+      display: none;
+    }
+
+    &--hidden {
+      left: 0 !important;
+    }
   }
 
   &__theme {

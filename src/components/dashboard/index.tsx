@@ -8,6 +8,8 @@ import careersIcon from '../../assets/careers-icon.png';
 import usersIcon from '../../assets/users-icon.png';
 import projectsIcon from '../../assets/projects-icon.png';
 import emailsIcon from '../../assets/emails-icon.png';
+import careerApplicationsIcon from '../../assets/Careers-applications-icon.png';
+
 import OverviewCard from './OverviewCard';
 import axios from 'axios';
 
@@ -60,12 +62,17 @@ const Dashboard = () => {
     {
       icon: projectsIcon,
       name: 'Projects',
-      value: overview.users
+      value: overview.projects
     },
     {
       icon: emailsIcon,
       name: 'Emails',
       value: overview.emails
+    },
+    {
+      icon: careerApplicationsIcon,
+      name: 'Career Applications',
+      value: overview.careerApplications
     }
   ];
 

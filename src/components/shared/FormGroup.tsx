@@ -1,14 +1,5 @@
 import React from 'react';
-
-type FormGroupType = {
-  label: string;
-  placeholder: string;
-  state: string | string[];
-  setState: React.SetStateAction<any>;
-  rows?: number;
-  variant?: 'outlined' | 'standard';
-  type?: 'text' | 'password';
-};
+import { FormGroupType } from '../../types/FormGroupType';
 
 const FormGroup = (props: FormGroupType) => {
   const {
@@ -18,7 +9,7 @@ const FormGroup = (props: FormGroupType) => {
     setState,
     rows,
     variant = 'outlined',
-    type = 'text',
+    type = 'text'
   } = props;
 
   return (
@@ -43,6 +34,7 @@ const FormGroup = (props: FormGroupType) => {
       ) : (
         <input
           type={type}
+          autoComplete={type === 'password' ? 'current-password' : ''}
           className={`form__field ${
             variant === 'standard'
               ? 'form__field--standard'

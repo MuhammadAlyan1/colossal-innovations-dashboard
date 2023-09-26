@@ -1,0 +1,10 @@
+@use '../abstract/_mixins' as *;
+@use '../abstract/variables' as *;
+@use '../components/index' as *;
+.careerApplications {
+  margin-block: 2rem;
+
+  .section-header {
+    @include section-header;
+  }
+}

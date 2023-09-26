@@ -1,0 +1,62 @@
+@use '../abstract/_mixins' as *;
+@use '../abstract/variables' as *;
+@use '../components/index' as *;
+
+.careerApplicationDetails {
+  margin-block: 2rem;
+
+  .section-header {
+    @include section-header;
+  }
+
+  &__application-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  &__personal-info {
+    list-style: none;
+  }
+
+  &__personal-info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: $text-lg;
+  }
+
+  &__personal-info-icon {
+    font-size: 2rem;
+    @include theme-aware {
+      color: getValue('clr-accent');
+    }
+  }
+
+  &__creation-date {
+    font-size: $text-base;
+    @include theme-aware {
+      color: getValue('clr-text-secondary');
+    }
+  }
+
+  &__additional-note {
+    font-size: $text-lg;
+
+    @include theme-aware {
+      color: getValue('clr-text-secondary');
+    }
+  }
+
+  &__notes-form {
+    margin-bottom: 2rem;
+  }
+
+  &__submit-button {
+    @include button--contained('clr-accent', 'clr-bg-secondary');
+    text-transform: uppercase;
+  }
+}

@@ -1,21 +1,12 @@
-import { useState, useEffect, useReducer, createContext } from 'react';
-
 import Blogs from './components/blogs';
 import CreateBlog from './components/blogs/CreateBlog';
-import UpdateBlog from './components/blogs/UpdateBlog';
 
-import Snackbar from './components/shared/Snackbar';
 import Signup from './components/auth/Signup';
 import Signin from './components/auth/Signin';
-import ConfirmModal from './components/shared/ConfirmModal';
-import ThemeSwitcher from './components/themeSwitcher';
 
 import { AppProvider } from './context/appContext';
 import Careers from './components/careers';
 import CreateCareer from './components/careers/CreateCareer';
-import BlogDetails from './components/blogs/BlogDetails';
-import UpdateCareer from './components/careers/UpdateCareer';
-import Navigation from './components/navigation';
 
 import SharedLayout from './pages/SharedLayout';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -26,31 +17,20 @@ import BlogUpdatePage from './pages/BlogUpdatePage';
 import CareerDetailsPage from './pages/CareerDetailsPage';
 import CareerUpdatePage from './pages/CareerUpdatePage';
 
-import { useLocation } from 'react-router-dom';
 import Projects from './components/projects';
 import CreateProject from './components/projects/CreateProject';
 import ProjectDetailsPage from './pages/ProjectDetailsPage';
 import ProjectUpdatePage from './pages/ProjectUpdatePage';
 import Users from './components/users';
-import Email from './components/emails/Email';
 import Emails from './components/emails';
 import EmailDetailsPage from './pages/EmailDetailsPage';
+import CareerApplications from './components/careerApplications';
+import CareerApplicationDetailsPage from './pages/CareerApplicationDetailsPage';
 
 function App() {
   return (
     <AppProvider>
       <div className="App">
-        {/* <CreateBlog />
-        <Blogs />
-        <UpdateBlog />
-        <Signup />
-        <Signin />
-        <CreateCareer />
-        <UpdateCareer />
-        <Careers />
-        <Navigation />
-        <Snackbar /> */}
-
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<SharedLayout />}>
@@ -81,6 +61,14 @@ function App() {
               <Route
                 path="careers/update/:careerID"
                 element={<CareerUpdatePage />}
+              />
+              <Route
+                path="/career-applications"
+                element={<CareerApplications />}
+              />
+              <Route
+                path="/career-applications/view/:careerApplicationID"
+                element={<CareerApplicationDetailsPage />}
               />
               <Route path="emails" element={<Emails />} />
               <Route

@@ -254,6 +254,66 @@ export const reducer = (
     }
 
     // -----------------------
+    // CAREER APPLICATIONS
+    // -----------------------
+
+    case 'SET_CAREER_APPLICATIONS': {
+      console.log('I GOT HERE');
+      return {
+        ...state,
+        careerApplications: action.payload
+      };
+    }
+
+    case 'DELETE_CAREER_APPLICATION': {
+      const newCareerApplications = state.careerApplications.filter(
+        (careerApplication) => careerApplication._id !== action.payload
+      );
+
+      return {
+        ...state,
+        careerApplications: newCareerApplications
+      };
+    }
+
+    case 'UPDATE_CAREER_APPLICATION_STATUS': {
+      const newCareerApplications = state.careerApplications.map(
+        (careerApplication) => {
+          if (careerApplication._id === action.payload._id) {
+            return {
+              ...careerApplication,
+              applicationStatus: action.payload.applicationStatus
+            };
+          } else {
+            return careerApplication;
+          }
+        }
+      );
+
+      return {
+        ...state,
+        careerApplications: newCareerApplications
+      };
+    }
+
+    case 'UPDATE_CAREER_APPLICATION_NOTES': {
+      const newCareerApplications = state.careerApplications.map(
+        (careerApplication) => {
+          if (careerApplication._id === action.payload._id) {
+            return action.payload;
+          } else {
+            return careerApplication;
+          }
+        }
+      );
+
+      return {
+        ...state,
+        careerApplications: newCareerApplications
+      };
+    }
+
+    // -----------------------
     // EMAILS
     // -----------------------
 

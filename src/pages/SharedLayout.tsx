@@ -23,11 +23,13 @@ const SharedLayout = () => {
   }, [location]);
 
   return (
-    <>
+    <div className="shared-layout">
       <Navigation />
-      <Outlet />
+      <main className="shared-layout__pages">
+        <Outlet />
+      </main>
       <Snackbar />
-    </>
+    </div>
   );
 };
 

@@ -23,7 +23,9 @@ const Project = ({ _id, title, image, tags }: ProjectType) => {
         <h3 className="project__title">{title}</h3>
         <ul className="project__tags">
           {tags.map((tag) => (
-            <li className="project__tag">{tag}</li>
+            <li key={tag} className="project__tag">
+              {tag}
+            </li>
           ))}
         </ul>
         <div className="project__buttons-container">

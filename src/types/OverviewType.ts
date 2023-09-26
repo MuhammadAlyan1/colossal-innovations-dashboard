@@ -4,4 +4,5 @@ export type OverviewType = {
   emails: number;
   projects: number;
   users: number;
+  careerApplications: number;
 };

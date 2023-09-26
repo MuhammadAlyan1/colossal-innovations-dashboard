@@ -1,0 +1,10 @@
+@use '../abstract/index' as *;
+
+.shared-layout {
+  @include xl {
+    &__pages {
+      margin-left: $navigation-width;
+      padding-inline: 2rem;
+    }
+  }
+}

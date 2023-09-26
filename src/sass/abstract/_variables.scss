@@ -1,3 +1,6 @@
+// widths
+$navigation-width: 300px;
+
 // border-radius
 $rounded-none: 0px;
 $rounded-sm: 0.125rem; /* 2px */
@@ -31,7 +34,7 @@ $breakpoints: (
   'md': 768px,
   'lg': 1024px,
   'xl': 1280px,
-  'xxl': 1536px,
+  'xxl': 1536px
 );
 
 // margin

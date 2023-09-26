@@ -5,6 +5,8 @@ import { UserType } from './UserType';
 import { ProjectType } from './ProjectType';
 import { EmailType } from './EmailType';
 import { OverviewType } from './OverviewType';
+import { CareerApplicationType } from './CareerApplicationType';
+import { ApplicationStatusType } from './ApplicationStatusType';
 
 export type ActionType =
   | { type: 'CHANGE_THEME'; payload: null }
@@ -31,5 +33,15 @@ export type ActionType =
   | { type: 'CREATE_CAREER'; payload: CareerType }
   | { type: 'UPDATE_CAREER'; payload: CareerType }
   | { type: 'DELETE_CAREER'; payload: string }
+  | { type: 'SET_CAREER_APPLICATIONS'; payload: CareerApplicationType[] }
+  | { type: 'DELETE_CAREER_APPLICATION'; payload: string }
+  | {
+      type: 'UPDATE_CAREER_APPLICATION_STATUS';
+      payload: { applicationStatus: ApplicationStatusType; _id: string };
+    }
+  | {
+      type: 'UPDATE_CAREER_APPLICATION_NOTES';
+      payload: CareerApplicationType;
+    }
   | { type: 'SET_EMAILS'; payload: EmailType[] }
   | { type: 'DELETE_EMAIL'; payload: string };

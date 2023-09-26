@@ -17,11 +17,13 @@ export const initialState: InitialStateType = {
     careers: 0,
     emails: 0,
     projects: 0,
-    users: 0
+    users: 0,
+    careerApplications: 0
   },
   users: [],
   blogs: [],
   careers: [],
+  careerApplications: [],
   projects: [],
   emails: [],
   snackbar: {

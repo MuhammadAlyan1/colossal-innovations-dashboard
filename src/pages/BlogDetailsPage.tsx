@@ -6,7 +6,7 @@ import BlogDetails from '../components/blogs/BlogDetails';
 const BlogDetailsPage = () => {
   const {
     state: { blogs },
-    dispatch,
+    dispatch
   } = useContext(AppContext);
   const navigate = useNavigate();
   const { blogID } = useParams();
@@ -25,8 +25,8 @@ const BlogDetailsPage = () => {
       payload: {
         isOpen: true,
         message: 'Blog does not exists!',
-        severity: 'error',
-      },
+        severity: 'error'
+      }
     });
     navigate('/404');
     return null;

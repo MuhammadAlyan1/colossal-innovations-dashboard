@@ -1,35 +1,41 @@
-import React, { useEffect, useContext } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect, useState, useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import { AppContext } from '../context/appContext';
 
 import CareerDetails from '../components/careers/CareerDetails';
+import axios from 'axios';
+import { CareerType } from '../types/CareerType';
 
 const CareerDetailsPage = () => {
-  const {
-    state: { careers },
-    dispatch,
-  } = useContext(AppContext);
-  const navigate = useNavigate();
+  const [career, setCareer] = useState<CareerType | null>(null);
+  const { dispatch } = useContext(AppContext);
   const { careerID } = useParams();
 
   useEffect(() => {
-    if (!careerID) {
-      navigate('/404');
-    }
+    const URL = `${process.env.REACT_APP_BASE_URL}careers/${careerID}`;
+
+    const fetchData = async (URL: string): Promise<void> => {
+      try {
+        const response = await axios.get(URL);
+        setCareer(response.data.data);
+      } catch (error: any) {
+        dispatch({
+          type: 'DISPLAY_SNACKBAR',
+          payload: {
+            isOpen: true,
+            message:
+              error?.response?.data?.message || 'Unable to retrieve career',
+            severity: 'error'
+          }
+        });
+        console.log(error);
+      }
+    };
+
+    fetchData(URL);
   }, [careerID]);
 
-  const career = careers.find((career) => career._id === careerID);
-
   if (!career) {
-    dispatch({
-      type: 'DISPLAY_SNACKBAR',
-      payload: {
-        isOpen: true,
-        message: 'Career does not exists!',
-        severity: 'error',
-      },
-    });
-    navigate('/404');
     return null;
   }
 

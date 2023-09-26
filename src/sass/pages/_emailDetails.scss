@@ -1,13 +1,14 @@
 @use '../abstract/index' as *;
 
 .email-details {
-  margin-top: 2rem;
+  margin-block: 2rem;
 
   &__header {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
     align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 
   &__address {
@@ -29,6 +30,13 @@
     margin-bottom: 2rem;
     @include theme-aware {
       color: getValue('clr-text-primary');
+    }
+  }
+
+  &__message {
+    @include theme-aware {
+      color: getValue('clr-text-secondary');
+      line-height: 1.2;
     }
   }
 }

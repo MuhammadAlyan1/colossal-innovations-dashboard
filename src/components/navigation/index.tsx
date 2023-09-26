@@ -8,6 +8,7 @@ import themesIcon from '../../assets/theme-icon.png';
 import projectIcon from '../../assets/projects-icon.png';
 import usersIcon from '../../assets/users-icon.png';
 import emailsIcon from '../../assets/emails-icon.png';
+import careerApplicationsIcon from '../../assets/Careers-applications-icon.png';
 
 import { IoMdClose } from 'react-icons/io';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -80,6 +81,18 @@ const Navigation = () => {
         >
           <img className="navigation__icon" src={careersIcon} />
           <span className="navigation__text">Careers</span>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? 'navigation__element navigation__element--active'
+              : 'navigation__element'
+          }
+          onClick={() => window.scrollTo(0, 0)}
+          to="/career-applications"
+        >
+          <img className="navigation__icon" src={careerApplicationsIcon} />
+          <span className="navigation__text">Applicants</span>
         </NavLink>
         <NavLink
           className={({ isActive }) =>

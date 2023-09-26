@@ -12,8 +12,9 @@ body {
   margin-top: 5rem;
   margin-inline: $default-margin-inline;
 
-  @include lg {
+  @include xl {
     margin-top: 5rem;
+    margin-inline: 0px;
   }
   @include theme-aware {
     color: getValue(clr-text-primary);
